@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="col-md-8 offset-4">
+	    <h1>DMサンプル</h1>
+        <h2>User一覧</h2>
+    </div>
+</div>
+
+<div class="row">
+	<div class="col-md-8 offset-4 mt-5">
+	    <strong><%= current_user.email %>さん　ログインしています</strong>
+	</div>
+
+    <div class="col-md-8 offset-4 mt-5">
+        <% number = 1 %>
+        <% @users.each do |user| %>
+            <p>プロフィールNo.<%= number %></p>
+            <p><%= user.email %>さん</p>
+            <p><%= link_to "ユーザー詳細", user_path(user.id) %></p>
+        <% number += 1 %>
+        <% end %>
+    </div>
+
+</div>
+
+

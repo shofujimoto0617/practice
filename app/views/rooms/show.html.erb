@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="col-md-8 offset-4">
+	    <h1>DM</h1>
+	    <% @entries.each do |e| %>
+            <h2><%= e.user.email %>　さん</h2>
+        <% end %>
+    </div>
+</div>
+
+<div class="row">
+	<div class="col-md-8 offset-4">
+	    <h1>トーク</h1>
+	    <% @messages.each do |m| %>
+	        <p><%= m.body %></p>
+            <p><%= m.user.email %>　さん</p>
+        <% end %>
+
+        <%= form_for @message do |f| %>
+            <%= f.text_field :body, :placeholder => "メッセージを入力してください", :size => 50 %>
+            <%= f.hidden_field :room_id, :value => @room.id %>
+            <br>
+            <%= f.submit "送信" %>
+        <% end %>
+    </div>
+</div>
+
+<div class="row">
+	<div class="col-md-4 offset-8">
+	    <%= link_to "User一覧に戻る", users_path %>
+    </div>
+</div>
